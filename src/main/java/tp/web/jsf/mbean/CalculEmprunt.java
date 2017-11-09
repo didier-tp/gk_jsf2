@@ -19,7 +19,7 @@ public class CalculEmprunt {
 			int nbMois = nbAnnees * 12 ;
 			this.mensualite = montant * tauxMensuel / 
 					         ( 1 - Math.pow ( 1 + tauxMensuel , -nbMois) ) ;
-			pageSuivante="resCalculMensualite"; //".jsp"
+			pageSuivante="resCalculMensualite"; //".jsp" ou ".xhtml"
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,0 +1,8 @@
+CREATE DATABASE IF NOT EXISTS minibank;
+
+GRANT ALL PRIVILEGES
+    ON minibank.*
+	TO user@'%'
+            IDENTIFIED BY 'user';
+
+FLUSH PRIVILEGES;
