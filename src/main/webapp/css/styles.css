@@ -1,1 +1,17 @@
 .RedCssClass { color: #EE0000; }
+
+.HEADING {
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold; font-size: 24px; color: black;
+background-color: silver; text-align: center;
+}
+.ROW1 {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px; color: black;
+background-color: white; text-indent: 10px;
+}
+.ROW2 {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 18px; color: white;
+background-color: black; text-indent: 10px;
+}

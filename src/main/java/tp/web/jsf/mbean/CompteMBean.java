@@ -39,8 +39,8 @@ public class CompteMBean {
 	public String login(){
 		System.out.println("login() appelé sur " + this.toString());
 		if(serviceCompte.verifAuth(numClient, password)){
-			this.message = "nbComptes:" 
-		      + serviceCompte.comptesDuClient(this.numClient).size();
+			this.message = "authentification ok"; 
+		    this.comptes = serviceCompte.comptesDuClient(this.numClient);
 			return "listeComptes";
 		}
 		else{ this.message="echec authentification. veuillez réessayer";
