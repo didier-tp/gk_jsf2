@@ -12,19 +12,27 @@
 	<h2>virement</h2>
 	  <h:messages styleClass="RedCssClass"/>
      <h:form>
-     montant: <h:inputText value="#{virementMBean.ordreVirement.montant}" /> <br/>
-     numCptDeb: <h:selectOneMenu value="#{virementMBean.ordreVirement.numCptDeb}" > 
+     <h:panelGrid id="subPanel_virement" columns="2">
+     
+     <h:outputLabel for="idMontant" value="montant :" />
+     <h:inputText id="idMontant" value="#{virementMBean.ordreVirement.montant}" /> 
+    
+     <h:outputLabel for="idNumCptDeb" value="numCptDeb:" /> 
+     <h:selectOneMenu id="idNumCptDeb" value="#{virementMBean.ordreVirement.numCptDeb}" > 
     				 <f:selectItems value="#{compteMBean.comptes}"
     				        var="c" itemValue="#{c.numero}" 
     				        itemLabel="[#{c.numero}] #{c.label} : #{c.solde}"/>
-              </h:selectOneMenu>
-     <br/>
-     numCptCred: <h:selectOneMenu value="#{virementMBean.ordreVirement.numCptCred}" >
+     </h:selectOneMenu>
+    
+     <h:outputLabel for="idNumCptCred" value="numCptDeb:" />
+     <h:selectOneMenu id="idNumCptCred" value="#{virementMBean.ordreVirement.numCptCred}" >
       				<f:selectItems value="#{compteMBean.comptes}"
     				        var="c" itemValue="#{c.numero}" 
     				        itemLabel="[#{c.numero}] #{c.label} : #{c.solde}"/>
-              </h:selectOneMenu> <br/>
+     </h:selectOneMenu> 
+     
      <h:commandButton value="login" action="#{virementMBean.doVirement }" />
+     </h:panelGrid>
      </h:form>
 	</ui:define>
 </ui:composition>
