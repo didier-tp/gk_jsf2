@@ -7,15 +7,14 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <ui:composition template="templates/common.xhtml">
-	<ui:define name="title">login</ui:define>
+	<ui:define name="title">saisir emprunt</ui:define>
 	<ui:define name="content">
-	   <h2>calcul emprunt </h2>
+	<h2>login</h2>
 	  <h:messages styleClass="RedCssClass"/>
      <h:form>
-     montant: <h:inputText value="#{calculEmprunt.montant }" /> <br/>
-     nbAnnees: <h:inputText value="#{calculEmprunt.nbAnnees }" /> <br/>
-     taux interet: <h:inputText value="#{calculEmprunt.tauxAnnuel }" /> % <br/>
-     <h:commandButton value="calcul mensualite" action="#{calculEmprunt.calculerMensualite }" />
+     numClient: <h:inputText value="#{compteMBean.numClient }" /> <br/>
+     password: <h:inputText value="#{compteMBean.password }" /> <br/>
+     <h:commandButton value="login" action="#{compteMBean.login }" />
      </h:form>
 	</ui:define>
 </ui:composition>

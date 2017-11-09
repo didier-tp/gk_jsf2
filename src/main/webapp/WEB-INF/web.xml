@@ -21,5 +21,16 @@
 		<param-name>facelets.DEVELOPMENT</param-name>
 		<param-value>true</param-value>
 	</context-param>
+	
+	<context-param>
+<param-name>contextConfigLocation</param-name>
+<param-value>classpath:/springContext.xml</param-value>
+</context-param>
+<listener>
+<!-- pour charger en memoire les composants spring dès le démarrage de l'appli
+     dans tomcat -->
+<listener-class>org.springframework.web.context.ContextLoaderListener
+</listener-class>
+</listener>
 
 </web-app>
