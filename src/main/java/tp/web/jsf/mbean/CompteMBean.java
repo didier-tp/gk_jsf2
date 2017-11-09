@@ -41,13 +41,22 @@ public class CompteMBean {
 		if(serviceCompte.verifAuth(numClient, password)){
 			this.message = "authentification ok"; 
 		    this.comptes = serviceCompte.comptesDuClient(this.numClient);
-			return "listeComptes";
+			return "listeComptes";//pour naviguer vers listeComptes.xhtml
 		}
 		else{ this.message="echec authentification. veuillez réessayer";
 			return null; 
 		}
 	}
 	
+	public String actualiserListeComptes() {
+		try {
+			this.comptes = serviceCompte.comptesDuClient(this.numClient);
+			return "listeComptes";//pour naviguer vers listeComptes.xhtml
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 	
 	//+get/set
 	
@@ -86,6 +95,9 @@ public class CompteMBean {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
+
+	
 	
 	
 

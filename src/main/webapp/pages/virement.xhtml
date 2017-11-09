@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="templates/common.xhtml">
+	<ui:define name="title">virement</ui:define>
+	<ui:define name="content">
+	<h2>virement</h2>
+	  <h:messages styleClass="RedCssClass"/>
+     <h:form>
+     montant: <h:inputText value="#{virementMBean.ordreVirement.montant}" /> <br/>
+     numCptDeb: <h:inputText value="#{virementMBean.ordreVirement.numCptDeb}" /> <br/>
+     numCptCred: <h:inputText value="#{virementMBean.ordreVirement.numCptCred}" /> <br/>
+     <h:commandButton value="login" action="#{virementMBean.doVirement }" />
+     </h:form>
+	</ui:define>
+</ui:composition>
+</html>
