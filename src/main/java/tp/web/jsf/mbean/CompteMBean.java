@@ -11,7 +11,11 @@ import org.springframework.stereotype.Component;
 import tp.data.Compte;
 import tp.service.IServiceCompte;
 
-
+//cette classe java correspond à un composant 
+//qui joue le rôle de "managedBean" JSF (#{compteMBean...}
+//et qui est techniquement:
+//   - d'abord instancié/initialisé par spring (@Autowired , ...)
+//   - ensuite réutilisé par JSF
 @Component() //id/name par defaut de ce composant spring : 
              // compteMBean (nom de classe avec minuscule au debut)
 @Scope("session") //equivalent spring de @SessionScoped
@@ -35,7 +39,8 @@ public class CompteMBean {
 	public String login(){
 		System.out.println("login() appelé sur " + this.toString());
 		if(serviceCompte.verifAuth(numClient, password)){
-			this.message = "nbComptes:" + serviceCompte.comptesDuClient(1L).size();
+			this.message = "nbComptes:" 
+		      + serviceCompte.comptesDuClient(this.numClient).size();
 			return "listeComptes";
 		}
 		else{ this.message="echec authentification. veuillez réessayer";

@@ -3,7 +3,7 @@ package tp.web.jsf.mbean;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-@ManagedBean
+@ManagedBean //managedBean uniquement géré par le framework JSF
 @RequestScoped
 public class CalculEmprunt {
 	
