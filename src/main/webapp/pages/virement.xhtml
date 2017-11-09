@@ -13,8 +13,17 @@
 	  <h:messages styleClass="RedCssClass"/>
      <h:form>
      montant: <h:inputText value="#{virementMBean.ordreVirement.montant}" /> <br/>
-     numCptDeb: <h:inputText value="#{virementMBean.ordreVirement.numCptDeb}" /> <br/>
-     numCptCred: <h:inputText value="#{virementMBean.ordreVirement.numCptCred}" /> <br/>
+     numCptDeb: <h:selectOneMenu value="#{virementMBean.ordreVirement.numCptDeb}" > 
+    				 <f:selectItems value="#{compteMBean.comptes}"
+    				        var="c" itemValue="#{c.numero}" 
+    				        itemLabel="[#{c.numero}] #{c.label} : #{c.solde}"/>
+              </h:selectOneMenu>
+     <br/>
+     numCptCred: <h:selectOneMenu value="#{virementMBean.ordreVirement.numCptCred}" >
+      				<f:selectItems value="#{compteMBean.comptes}"
+    				        var="c" itemValue="#{c.numero}" 
+    				        itemLabel="[#{c.numero}] #{c.label} : #{c.solde}"/>
+              </h:selectOneMenu> <br/>
      <h:commandButton value="login" action="#{virementMBean.doVirement }" />
      </h:form>
 	</ui:define>
