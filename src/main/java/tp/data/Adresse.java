@@ -6,6 +6,11 @@ public class Adresse {
 	private String ville;
 	
 
+	@Override
+	public String toString() {
+		return "Adresse [numeroEtRue=" + numeroEtRue + ", codePostal=" + codePostal + ", ville=" + ville + "]";
+	}
+	
 	//+get/set
 	public String getNumeroEtRue() {
 		return numeroEtRue;

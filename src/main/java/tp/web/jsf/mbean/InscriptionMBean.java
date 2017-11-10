@@ -11,7 +11,8 @@ import tp.data.Adresse;
 @RequestScoped // ou bien @SessionScoped
 public class InscriptionMBean {
 
-	private Adresse adresse; //à saisir
+	//(new pour eviter nullPointerException)
+	private Adresse adresse = new Adresse(); //à saisir 
 	private String nom;
 	private Date date;
 	
@@ -19,7 +20,7 @@ public class InscriptionMBean {
 	
 	public String inscrire(){
 		message = "inscription prise en compte pour nom="
-				+nom + "date=" + date + "adresse="+ adresse;
+				+nom + " date=" + date + " adresse="+ adresse;
 		return null; //pour affichage message sur meme page
 	}
 
