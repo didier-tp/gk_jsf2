@@ -18,7 +18,8 @@
      adresse:<br/>
      numero et rue : <h:inputText value="#{inscriptionMBean.adresse.numeroEtRue }" /> <br/>
      codePostal : <h:inputText value="#{inscriptionMBean.adresse.codePostal}" /> <br/>
-     ville : <h:inputText value="#{inscriptionMBean.adresse.ville }" /> <br/>
+     ville : <p:autoComplete completeMethod="#{inscriptionMBean.suggererVilles}"
+	                       value="#{inscriptionMBean.adresse.ville}" /> <br/>
      <h:commandButton value="inscription" action="#{inscriptionMBean.inscrire }" />
      </h:form>
      <hr/>
