@@ -1,8 +1,17 @@
 package tp.data;
 
+import javax.validation.constraints.Size;
+
 public class Adresse {
+	
+	
 	private String numeroEtRue;
+	
+	@Size(min=5 , 
+		  message="au moins 5 caractères")
 	private String codePostal;
+	
+	@Size(min=2 ,  message="moins 2 caractères")
 	private String ville;
 	
 

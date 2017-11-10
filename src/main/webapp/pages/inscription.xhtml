@@ -12,12 +12,14 @@
 	<ui:define name="content">
 	<h2>inscription</h2>
 	  <h:messages styleClass="RedCssClass"/>
-     <h:form>
+     <h:form id="f">
      nom: <h:inputText value="#{inscriptionMBean.nom }" /> <br/>
      date: <p:calendar value="#{inscriptionMBean.date }" /> <br/>
      adresse:<br/>
      numero et rue : <h:inputText value="#{inscriptionMBean.adresse.numeroEtRue }" /> <br/>
-     codePostal : <h:inputText value="#{inscriptionMBean.adresse.codePostal}" /> <br/>
+     codePostal : <h:inputText id="codePostal" value="#{inscriptionMBean.adresse.codePostal}" >
+          <p:ajax event="keyup" update="msgCodePostal" />
+     </h:inputText>  <p:message for="codePostal" id="msgCodePostal" display="icon" /> <br/>
      ville : <p:autoComplete completeMethod="#{inscriptionMBean.suggererVilles}"
 	                       value="#{inscriptionMBean.adresse.ville}" /> <br/>
      <h:commandButton value="inscription" action="#{inscriptionMBean.inscrire }" />
