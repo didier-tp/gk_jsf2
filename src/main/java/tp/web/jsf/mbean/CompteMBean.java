@@ -3,6 +3,8 @@ package tp.web.jsf.mbean;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -41,7 +43,14 @@ public class CompteMBean {
 		if(serviceCompte.verifAuth(numClient, password)){
 			this.message = "authentification ok"; 
 		    this.comptes = serviceCompte.comptesDuClient(this.numClient);
-			return "listeComptes";//pour naviguer vers listeComptes.xhtml
+		    if(this.comptes.size()>0)
+			    return "listeComptes";//pour naviguer vers listeComptes.xhtml
+		    else {
+		    	FacesContext.getCurrentInstance()
+		    	    .addMessage( null /* id = null pour message global */,
+		    		     new FacesMessage("aucun compte pour ce client" , "...details..."));
+		    	return null;//pour ne pas changer de page
+		    }
 		}
 		else{ this.message="echec authentification. veuillez réessayer";
 			return null; 

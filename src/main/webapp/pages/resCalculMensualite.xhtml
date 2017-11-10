@@ -12,7 +12,9 @@
 pour rembourser un montant de <b><h:outputText value="#{calculEmprunt.montant }" /></b> euros <br/>
 sur une duree de <b><h:outputText value="#{calculEmprunt.nbAnnees }" /> </b>an(s) <br/>
 et avec un taux d'intérêt annuel de <b><h:outputText value="#{calculEmprunt.tauxAnnuel }" /> % </b> <br/>
-il faut des mensualites de <b><h:outputText value="#{calculEmprunt.mensualite }" /></b> .
+il faut des mensualites de <b><h:outputText value="#{calculEmprunt.mensualite }" >
+   <f:convertNumber maxFractionDigits="2" />
+</h:outputText></b> .
 	</ui:define>
 </ui:composition>
 </html>
