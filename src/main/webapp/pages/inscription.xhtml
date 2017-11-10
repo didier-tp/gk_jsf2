@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="templates/common.xhtml">
+	<ui:define name="title">inscription</ui:define>
+	<ui:define name="content">
+	<h2>inscription</h2>
+	  <h:messages styleClass="RedCssClass"/>
+     <h:form>
+     nom: <h:inputText value="#{inscriptionMBean.nom }" /> <br/>
+     date: <p:calendar value="#{inscriptionMBean.date }" /> <br/>
+     <!-- adresse plus tard -->
+     <h:commandButton value="inscription" action="#{inscriptionMBean.inscrire }" />
+     </h:form>
+     <hr/>
+     <h:outputText value="#{inscriptionMBean.message }" />
+	</ui:define>
+</ui:composition>
+</html>
