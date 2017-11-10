@@ -25,6 +25,30 @@
 				<h:outputText value="#{c.solde}" />
 			</h:column>
 		</h:dataTable>
+		
+		<h:form>
+		numero de compte à détaillé:
+		<h:selectOneMenu  onchange="submit()" value="#{compteMBean.numCptSel}"
+		     valueChangeListener="#{compteMBean.onNouvelleSelectionDeCompte}">
+		     
+		    <f:selectItems value="#{compteMBean.comptes}" var="c" 
+		                   itemValue="#{c.numero}" itemLabel="#{c.label}"/>
+		                   
+		</h:selectOneMenu>
+		</h:form>
+		<h:dataTable headerClass="HEADING" rowClasses="ROW1,ROW2"
+		  value="#{compteMBean.operations}" var="o" border="1">
+			<h:column>
+			    <f:facet name="header"><f:verbatim>montant</f:verbatim></f:facet>
+				<h:outputText value="#{o.montant}" />
+			</h:column>
+			<h:column>
+			    <f:facet name="header"><f:verbatim>label</f:verbatim></f:facet>
+				<h:outputText value="#{o.label}" />
+			</h:column>			
+		</h:dataTable>
+		
+		
 		<hr/>
 		<a href="virement.jsf">nouveau virement</a><br/>
 		<br/>

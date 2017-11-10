@@ -5,12 +5,14 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import tp.data.Compte;
+import tp.data.Operation;
 import tp.service.IServiceCompte;
 
 //cette classe java correspond à un composant 
@@ -27,6 +29,17 @@ public class CompteMBean {
 	private String password;
 	private List<Compte> comptes;
 	
+	private Long numCptSel ; //numero de compte selectionné
+	                         //pour afficher dernieresOperations (détails)
+	private List<Operation> operations;//à afficher (détails)
+	
+	public void onNouvelleSelectionDeCompte(ValueChangeEvent event){
+		this.numCptSel = (Long) event.getNewValue();
+		//actualiser en mémoire la liste des operations à afficher
+		this.operations = serviceCompte.dernieresOperations(numCptSel);
+	}
+	
+
 	@PostConstruct
 	public void apresInitSpring(){
 		System.out.println("initialise par spring");
@@ -107,7 +120,21 @@ public class CompteMBean {
 
 
 	
-	
+	public Long getNumCptSel() {
+		return numCptSel;
+	}
+
+	public void setNumCptSel(Long numCptSel) {
+		this.numCptSel = numCptSel;
+	}
+
+	public List<Operation> getOperations() {
+		return operations;
+	}
+
+	public void setOperations(List<Operation> operations) {
+		this.operations = operations;
+	}
 	
 
 }
