@@ -1,5 +1,7 @@
 package tp.service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 import tp.dao.ICompteDao;
 import tp.data.Client;
 import tp.data.Compte;
+import tp.data.Operation;
 import tp.data.Virement;
 //Simulation d'un service métier (avec spring, sans database)
 @Service
@@ -64,6 +67,31 @@ public class ServiceCompte implements IServiceCompte {
 	
 	public List<Compte> comptesDuClient(Long numClient){
 		return compteDao.rechercherComptesDuClient(numClient);
+	}
+
+
+	@Override
+	public List<Operation> dernieresOperations(Long numCompte) {
+		// version simulée sans base de données:
+		List<Operation> listeOp = new ArrayList<Operation>();
+		int numCpt = (int)(long) numCompte;
+		Date d=new Date();
+		switch(numCpt){
+		case 1:
+			listeOp.add(new Operation(101L,1L,d,"achat xy 1",-23.20));
+			listeOp.add(new Operation(102L,1L,d,"achat xy 2",-15.20));
+			break;
+		case 2:
+			listeOp.add(new Operation(201L,2L,d,"achat zzz 2 ",-123.20));
+			listeOp.add(new Operation(202L,2L,d,"achat zzz 2", -115.20));
+			break;
+		case 3:
+			listeOp.add(new Operation(301L,3L,d,"achat aa 1",-223.20));
+			listeOp.add(new Operation(302L,3L,d,"achat bb 2",-215.20));
+			break;
+		
+		}
+		return listeOp;
 	}
 	
 	
