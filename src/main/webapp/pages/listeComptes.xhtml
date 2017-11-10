@@ -25,18 +25,18 @@
 				<h:outputText value="#{c.solde}" />
 			</h:column>
 		</h:dataTable>
-		
+		<hr/>
 		<h:form>
 		numero de compte à détaillé:
-		<h:selectOneMenu  onchange="submit()" value="#{compteMBean.numCptSel}"
+		<h:selectOneMenu  value="#{compteMBean.numCptSel}"
 		     valueChangeListener="#{compteMBean.onNouvelleSelectionDeCompte}">
 		     
 		    <f:selectItems value="#{compteMBean.comptes}" var="c" 
 		                   itemValue="#{c.numero}" itemLabel="#{c.label}"/>
-		                   
+		    <f:ajax event="change" render="idTabOp" />               
 		</h:selectOneMenu>
 		</h:form>
-		<h:dataTable headerClass="HEADING" rowClasses="ROW1,ROW2"
+		<h:dataTable id="idTabOp" headerClass="HEADING" rowClasses="ROW1,ROW2"
 		  value="#{compteMBean.operations}" var="o" border="1">
 			<h:column>
 			    <f:facet name="header"><f:verbatim>montant</f:verbatim></f:facet>
